@@ -29,3 +29,10 @@ jobs:
         # Adiciona o diretório atual ao PYTHONPATH para encontrar o módulo 'app'
         export PYTHONPATH=$PWD
         pytest
+    
+    # Adicionando a validação de segurança Gitleaks, conforme solicitado
+    - name: Run Gitleaks (Security Scan)
+      uses: zricethezav/gitleaks-action@v2
+      # Nota: Este passo pode falhar devido à necessidade de uma chave de licença (GITLEAKS_LICENSE)
+      # se o seu ambiente for uma organização (como o Senac/GitHub Classroom).
+      # Mantenha-o, mas se falhar, entre em contato com seu instrutor.
