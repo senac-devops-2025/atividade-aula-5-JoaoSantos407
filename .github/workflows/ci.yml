@@ -13,7 +13,7 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-
+    
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
@@ -30,8 +30,8 @@ jobs:
         export PYTHONPATH=$PWD
         pytest
 
-        #Este passo é para o Gitleaks, se ele não for incluído automaticamente pelo Classroom.
-        - name: Run Gitleaks
-          uses: zricethezav/gitleaks-action@v2
-          with:
-          config: .gitleaks.toml # (Ou um arquivo de configuração específico se existir)
+    # ESTE É O NOVO PASSO SEPARADO, ALINHADO COM OS OUTROS '- name:'
+    - name: Run Gitleaks
+      uses: zricethezav/gitleaks-action@v2
+      with:
+        config: .gitleaks.toml # Mantenha esta linha se o arquivo de config existir
